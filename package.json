@@ -1,0 +1,100 @@
+{
+  "name": "coc-yard",
+  "version": "0.0.0-development",
+  "description": "Document Ruby source code with YARD",
+  "author": "Weirong Xu <weirongxu.raidou@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "coc.nvim",
+    "documentation",
+    "ruby",
+    "rails",
+    "yard",
+    "snippet"
+  ],
+  "engines": {
+    "coc": "^0.0.80"
+  },
+  "scripts": {
+    "lint": "eslint src --ext ts",
+    "clean": "rimraf lib",
+    "watch": "node esbuild.js --watch",
+    "build": "node esbuild.js",
+    "prepare": "node esbuild.js"
+  },
+  "devDependencies": {
+    "@raidou/eslint-config-base": "^1.5.0",
+    "coc-helper": "^0.11.1",
+    "coc.nvim": "0.0.81-next.19",
+    "esbuild": "^0.8.42",
+    "eslint": "^7.14.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.2"
+  },
+  "homepage": "https://github.com/weirongxu/coc-yard",
+  "repository": "git@github.com:weirongxu/coc-yard.git",
+  "activationEvents": [
+    "onCommand:extension.generateYard"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.generateYard",
+        "title": "Document with YARD"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "YARD Documenter configuration",
+      "properties": {
+        "yard.spacers.beforeDescription": {
+          "type": "boolean",
+          "default": true,
+          "description": "Prepend an empty line to descriptive texts"
+        },
+        "yard.spacers.afterDescription": {
+          "type": "boolean",
+          "default": true,
+          "description": "Append an empty line to descriptive texts"
+        },
+        "yard.spacers.beforeTags": {
+          "type": "boolean",
+          "default": true,
+          "description": "Prepend an empty line to all method's tags"
+        },
+        "yard.spacers.separateTags": {
+          "type": "boolean",
+          "default": true,
+          "description": "Separate method's tags of the same name (@params and @return) with an empty line"
+        },
+        "yard.spacers.afterTags": {
+          "type": "boolean",
+          "default": true,
+          "description": "Append an empty line to all method's tags"
+        },
+        "yard.spacers.beforeSingleTag": {
+          "type": "boolean",
+          "default": false,
+          "description": "Prepend an empty line to directives or single tags (for example constants)"
+        },
+        "yard.spacers.afterSingleTag": {
+          "type": "boolean",
+          "default": false,
+          "description": "Append an empty line to directives or single tags (for example constants)"
+        },
+        "yard.tags.author": {
+          "type": "boolean",
+          "default": false,
+          "description": "Append @author tag to Class and Module documentation"
+        },
+        "yard.tags.paramNameBeforeType": {
+          "type": "boolean",
+          "default": false,
+          "description": "Print param name before its type (for example '@param username [String]')"
+        }
+      }
+    }
+  }
+}
