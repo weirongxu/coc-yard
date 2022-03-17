@@ -8,7 +8,13 @@ export class TagOption {
   public type?: string;
 
   constructor(params: TagOption = {} as TagOption) {
-    const { paramName = '', key = '', types = '', defaultValue = '', text = '' } = params;
+    const {
+      paramName = '',
+      key = '',
+      types = '',
+      defaultValue = '',
+      text = '',
+    } = params;
 
     this.paramName = paramName;
     this.key = key;

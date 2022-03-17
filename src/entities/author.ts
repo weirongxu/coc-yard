@@ -8,7 +8,12 @@ export class Author extends Tag {
   constructor(params: Author = {} as Author) {
     super(params);
 
-    const { tagName = 'author', authorName = '', authorEmail = '', type = 'Author' } = params;
+    const {
+      tagName = 'author',
+      authorName = '',
+      authorEmail = '',
+      type = 'Author',
+    } = params;
 
     this.tagName = tagName;
     this.authorName = authorName;
